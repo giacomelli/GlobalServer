@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0C913827-0AD1-4858-95E0-F1F7C4B2069D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Skahal.GlobalServer.Infrastructure</RootNamespace>
+    <AssemblyName>Skahal.GlobalServer.Infrastructure</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Skahal.Data">
+      <HintPath>..\References\Skahal.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\References\mysql.data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\MySql\MySqlStorageRepository.cs" />
+    <Compile Include="Repositories\MySql\MySqlServerRepository.cs" />
+    <Compile Include="Repositories\Memory\MemoryServerRepository.cs" />
+    <Compile Include="Repositories\Memory\MemoryStorageRepository.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+    <Folder Include="Repositories\MySql\" />
+    <Folder Include="Repositories\Memory\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Skahal.GlobalServer.Domain\Skahal.GlobalServer.Domain.csproj">
+      <Project>{AB4417E6-4BEA-469A-A897-AAF613CD74EE}</Project>
+      <Name>Skahal.GlobalServer.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

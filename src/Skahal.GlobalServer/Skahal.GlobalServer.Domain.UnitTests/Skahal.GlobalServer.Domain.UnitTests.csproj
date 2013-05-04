@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{242D7F42-EA02-408E-894C-92A40C349393}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Skahal.GlobalServer.Domain.UnitTests</RootNamespace>
+    <AssemblyName>Skahal.GlobalServer.Domain.UnitTests</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="nunit.framework">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\References\Rhino.Mocks.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\Skahal.GlobalServer.Domain\Skahal.GlobalServer.Domain.csproj">
+      <Project>{AB4417E6-4BEA-469A-A897-AAF613CD74EE}</Project>
+      <Name>Skahal.GlobalServer.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Multiplayer\" />
+    <Folder Include="Players\" />
+    <Folder Include="Server\" />
+    <Folder Include="Storages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Multiplayer\MultiplayerGameTest.cs" />
+    <Compile Include="Multiplayer\MultiplayerServiceTest.cs" />
+    <Compile Include="Players\PlayerTest.cs" />
+    <Compile Include="Server\ServerServiceTest.cs" />
+    <Compile Include="Storages\StorageServiceTest.cs" />
+  </ItemGroup>
+</Project>
