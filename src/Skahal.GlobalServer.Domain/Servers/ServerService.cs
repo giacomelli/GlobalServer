@@ -48,6 +48,9 @@ namespace Skahal.GlobalServer.Domain.Servers
 
 		#region Properties
 		public static float PlayerInactivityTimeoutSeconds { get; set; }
+		public static float MinDequeueMessagesWaitingSeconds { get; set; }
+		public static float MaxDequeueMessagesWaitingSeconds { get; set; }
+		public static float DecreaseDequeueMessagesWaitingSeconds { get; set; }
 		#endregion
 
 
@@ -93,9 +96,9 @@ namespace Skahal.GlobalServer.Domain.Servers
 			server.AvailablePlayersCount = player == null ? MultiplayerService.CountAvailablePlayers() : MultiplayerService.CountAvailablePlayersForVersion(player.GameVersion);
 			server.GamesCount = MultiplayerService.CountAllGames();
 			server.RequestsCount = s_requestsCount;
-			server.MinDequeueMessagesWaitingSeconds = 1f;
-			server.MaxDequeueMessagesWaitingSeconds = 3f;
-			server.DecreaseDequeueMessagesWaitingSeconds = 1f;
+			server.MinDequeueMessagesWaitingSeconds = MinDequeueMessagesWaitingSeconds;
+			server.MaxDequeueMessagesWaitingSeconds = MaxDequeueMessagesWaitingSeconds;
+			server.DecreaseDequeueMessagesWaitingSeconds = DecreaseDequeueMessagesWaitingSeconds;
 			server.State = s_serverState;
 			
 			return server;

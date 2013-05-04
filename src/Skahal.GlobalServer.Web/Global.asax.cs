@@ -20,12 +20,16 @@ namespace Skahal.GlobalServer.Web
 		
 		protected virtual void Application_Start (Object sender, EventArgs e)
 		{
-		//	ServerService.Initialize(new MySqlServerRepository());
-		//	StorageService.Initialize(new MySqlStorageRepository());
-			ServerService.PlayerInactivityTimeoutSeconds = Convert.ToInt32( ConfigurationManager.AppSettings["PlayerInactivityTimeoutSeconds"]);
+			ServerService.PlayerInactivityTimeoutSeconds = Convert.ToSingle(ConfigurationManager.AppSettings["PlayerInactivityTimeoutSeconds"]);
+			ServerService.MinDequeueMessagesWaitingSeconds = Convert.ToSingle(ConfigurationManager.AppSettings["MinDequeueMessagesWaitingSeconds"]);
+			ServerService.MaxDequeueMessagesWaitingSeconds = Convert.ToSingle(ConfigurationManager.AppSettings["MaxDequeueMessagesWaitingSeconds"]);
+			ServerService.DecreaseDequeueMessagesWaitingSeconds = Convert.ToSingle(ConfigurationManager.AppSettings["DecreaseDequeueMessagesWaitingSeconds"]);
+
 			ServerService.Initialize(new MemoryServerRepository());
 			StorageService.Initialize(new MemoryStorageRepository());
 
+			//	ServerService.Initialize(new MySqlServerRepository());
+			//	StorageService.Initialize(new MySqlStorageRepository());
 		}
 		
 		protected virtual void Session_Start (Object sender, EventArgs e)
